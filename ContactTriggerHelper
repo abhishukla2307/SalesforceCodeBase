@@ -1,0 +1,56 @@
+/*Class Name: ContactTriggerHelper
+*Description: This is a Trigger Helper Class to execute trigger logic
+
+*Modification Log
+*------------------------------------------------------------------------------------------
+*Developer              Date            User Story              Description
+*------------------------------------------------------------------------------------------
+*Abhishek Shukla    
+*/
+public class ContactTriggerHelper{
+    
+    /*
+    * Method name  : beforeInsertExecution
+    * Description  : Use this method to write the before insert logic
+    * Parameter    : List of new Contacts.
+    * Return Type  : None
+    * Developer    : <--Developer Name-->
+    * Modifier ref :
+    */
+    public static void beforeInsertExecution(List<Contact> newList){
+     
+    }
+    /*
+    * Method name  : afterInsertExecution
+    * Description  : Use this method to write the After insert logic
+    * Parameter    : List of new Contacts.
+    * Return Type  : None
+    * Developer    : <--Developer Name-->
+    * Modifier ref :
+    */
+    public static void afterInsertExecution(Map<Id, Contact> newMap){
+     
+    }
+    /*
+    * Method name  : beforeUpdateExecution
+    * Description  : Use this method to write the before update logic
+    * Parameter    : Map of new/old Contacts.
+    * Return Type  : None
+    * Developer    : <--Developer Name-->
+    * Modifier ref :
+    */
+    public static void beforeUpdateExecution(Map<Id, Contact> newMap, Map<Id, Contact> oldMap){
+     
+    }
+    /*
+    * Method name  : afterUpdateExecution
+    * Description  : Use this method to write the After update logic
+    * Parameter    : Map of new/old Contacts.
+    * Return Type  : None
+    * Developer    : <--Developer Name-->
+    * Modifier ref :
+    */
+    public static void afterUpdateExecution(Map<Id, Contact> newMap, Map<Id, Contact> oldMap){
+     
+    }
+}
