@@ -1,0 +1,73 @@
+/*Class Name: ContactTriggerHandler
+*Description: This is a Trigger Handler Class to handle all methods to be utilized in Trigger Helper
+
+*Modification Log
+*------------------------------------------------------------------------------------------
+*Developer              Date            User Story              Description
+*------------------------------------------------------------------------------------------
+*Abhishek Shukla    
+*/
+public class ContactTriggerHandler implements TriggerHandlerInterface{
+    // These variables will be utilized to handle recursion of the methods.
+    public static boolean isBeforeInsertExecuted =false;
+    public static boolean isAfterInsertExecuted =false;
+    public static boolean isBeforeUpdateExecuted =false;
+    public static boolean isAfterUpdateExecuted =false;
+    
+    
+    /*Checks to see if the trigger has been deactivated by custom setting or by running code*/
+    public Boolean IsDeactive(){
+        //ContactTrigger__c would be set to false to disable the trigger
+        //return !"<--Custom Setting Name-->".getInstance().<--Trigger Name-->;
+        return false;
+    }
+    
+    /* Method for Before Insert context*/ 
+    public void BeforeInsert(List<SObject> newItems){
+        if (!isBeforeInsertExecuted ) {
+            List<Contact> newList = (List<Contact>)newItems;
+            ContactTriggerHelper.beforeInsertExecution(newList );
+            isBeforeInsertExecuted=true; 
+        }
+    }
+    
+    /* Method for Before Update Context*/
+    public void BeforeUpdate(Map<Id, SObject> newItems, Map<Id, SObject> oldItems) {
+        if (!isBeforeUpdateExecuted ) {
+            Map<Id, Contact> newMap=(Map<Id, Contact>)newItems;
+            Map<Id, Contact> oldMap=(Map<Id, Contact>)oldItems;
+            ContactTriggerHelper.beforeUpdateExecution(newMap, oldMap);
+            isBeforeUpdateExecuted  = true;
+        }
+    }
+    
+    
+    /* Method for After Insert Context*/
+    public void AfterInsert(Map<Id, SObject> newItems) {
+        if (!isAfterInsertExecuted ) {
+            Map<Id, Contact> newMap = (Map<Id, Contact>)newItems;
+            ContactTriggerHelper.afterInsertExecution(newMap);
+            isAfterInsertExecuted  = true;
+            
+        }
+    }
+    
+    /* Method for After Update Context*/
+    public void AfterUpdate(Map<Id, SObject> newItems,Map<Id, SObject> oldItems) {
+        if (!isAfterUpdateExecuted ) {
+            Map<Id, Contact> newMap=(Map<Id, Contact>)newItems;
+            Map<Id, Contact> oldMap=(Map<Id, Contact>)oldItems;
+            ContactTriggerHelper.afterUpdateExecution(newMap, oldMap);
+            isAfterUpdateExecuted  = true;
+        }
+    }
+    
+    /* Method for Before Delete Context*/
+    public void BeforeDelete(Map<Id, SObject> oldItems) {
+        
+    }
+    
+    /* Method for After Undelete Context*/
+    public void AfterUndelete(Map<Id, SObject> newItems) {
+    }
+}
