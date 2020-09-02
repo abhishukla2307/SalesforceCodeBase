@@ -1,0 +1,47 @@
+/*Class Name: TriggerHandlerInterface 
+*Description: This is a Interface to handle all methods to be utilized in Handle classes
+
+*Modification Log
+*------------------------------------------------------------------------------------------
+*Developer              Date            User Story              Description
+*------------------------------------------------------------------------------------------
+*Abhishek Shukla    
+*/
+public interface TriggerHandlerInterface {
+    
+    /*
+    * This Method will be used to handle Before Insert trigger execution
+    */
+    void BeforeInsert(List<SObject> newRecords);
+    
+    /*
+    * This Method will be used to handle Before Update trigger execution
+    */
+    void BeforeUpdate(Map<Id, SObject> newRecords, Map<Id, SObject> oldRecords);
+    
+    /*
+    * This Method will be used to handle Before Delete trigger execution
+    */
+    void BeforeDelete(Map<Id, SObject> oldRecords);
+    
+    /*
+    * This Method will be used to handle After Insert trigger execution
+    */
+    void AfterInsert(Map<Id, SObject> newRecords);
+    
+    /*
+    * This Method will be used to handle After Update trigger execution
+    */
+    void AfterUpdate(Map<Id, SObject> newRecords, Map<Id, SObject> oldRecords);
+    
+    
+    /*
+    * This Method will be used to handle After Undelete trigger execution
+    */
+    void AfterUndelete(Map<Id, SObject> oldRecords);
+    
+    /*
+    * Method to check if the trigger is Acitve/Deactive using custom Setting manually
+    */
+    Boolean IsDeactive();
+}
