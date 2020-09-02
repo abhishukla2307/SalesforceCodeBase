@@ -1,0 +1,9 @@
+
+/* Name:  ContactTrigger 
+*Description: Trigger on Contact
+*Created By: <--Developer Name -->
+*Created On: 
+*/
+trigger ContactTrigger on Contact (before insert,after insert,before update, after update) {
+    TriggerFactory.run(new ContactTriggerHandler());
+}
